@@ -10,7 +10,7 @@ namespace Unit25.Repositories
     public class BookRepository
     {
         // CREATE
-        public int? AddNewBook(string name, int year)
+        public int? AddNewBook(string name, string author, int year, string genre)
         {
             int? newBookId;
 
@@ -19,7 +19,9 @@ namespace Unit25.Repositories
                 Book book = new Book()
                 {
                     Name = name,
-                    Year = year
+                    Author = author,
+                    Year = year,
+                    Genre = genre
                 };
 
                 using var db = new AppContext();

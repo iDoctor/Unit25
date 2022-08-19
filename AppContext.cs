@@ -8,7 +8,7 @@ using Unit25.Models;
 
 namespace Unit25
 {
-    public class AppContext : DbContext
+    public sealed class AppContext : DbContext
     {
         // Объекты таблицы Users
         public DbSet<User> Users { get; set; }
@@ -18,6 +18,7 @@ namespace Unit25
 
         public AppContext()
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
