@@ -91,6 +91,28 @@ namespace Unit25.Repositories
             return booksList;
         }
 
+        // CUSTOM READ
+        // 1
+        public List<Book> GetBookCustom1(int year1, int year2)
+        {
+            List<Book> booksList;
+            try
+            {
+                using var db = new AppContext();
+                booksList = db.Books.Where(x => x.Year >= year1 && x.Year <= year2).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка в методе: {ex.Message}");
+                throw;
+            }
+
+            return booksList;
+        }
+
+        //2
+        //... Далее аналогично методу 1
+
 
         // UPDATE
         public int? UpdateBook(int id, string name, int year)
